@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       print_btn: 'In / Lưu PDF',
       hero_role_badge: 'Mục tiêu: Software Engineering Intern / Developer',
       hero_greeting: 'Xin chào, tôi là',
-      hero_bio: 'Tôi là một người cầu tiến, có các kỹ năng xử lý vấn đề, xử lý tình huống, kiên trì không ngại khó khăn hay thử thách, thích học hỏi những điều mới mẻ.',
+      hero_bio: 'Lập trình viên trẻ đầy nhiệt huyết, định hướng phát triển chuyên sâu mảng .NET/C# và hệ thống cơ sở dữ liệu SQL Server. Sở hữu tư duy giải quyết vấn đề logic, kỹ năng phân tích yêu cầu bài bản cùng tinh thần cầu tiến, không ngại thử thách và luôn sẵn sàng làm chủ các công nghệ mới.',
       copy_tag: 'Sao chép',
       hero_address: 'Kiên Đài - Tuyên Quang, Việt Nam',
       hero_btn_projects: 'Xem Dự Án',
@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
       proj_desc: 'Đồ án thực tế áp dụng kiến trúc phần mềm chuẩn, tối ưu dữ liệu và quy trình phát triển chuyên nghiệp.',
       proj_featured_badge: 'Dự án nổi bật',
       proj_timeline: '23/08/2026 – 20/10/2026',
+      proj_live_tag: 'LIVE DEMO TRỰC TIẾP',
+      proj_live_notice: '<strong>Trải nghiệm ứng dụng thực tế:</strong> Bạn có thể tương tác trực tiếp trên khung web bên dưới: Đăng nhập nội bộ (tài khoản đã điền sẵn), Tạo & Quản lý hợp đồng gửi xe, Đổi xe, Tra cứu & Lọc trạng thái, Xem lịch sử và Chuyển giao diện Sáng / Tối.',
       proj_source_btn: 'Mã nguồn GitHub',
       proj_readme_btn: 'Tài liệu README.md',
       proj_name: 'Monthly Parking System (MPS) - MPS Residence',
@@ -94,8 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
       contact_tag: 'Kết nối hợp tác',
       contact_title: 'Thông Tin Liên Hệ',
       contact_desc: 'Tôi luôn sẵn sàng đón nhận cơ hội thực tập, phỏng vấn và trao đổi chuyên môn.',
+      contact_phone_label: 'Số điện thoại:',
+      contact_call_btn: 'Gọi ngay',
+      contact_send_btn: 'Gửi thư',
       contact_email_label: 'Hộp thư điện tử:',
       contact_copy_btn: 'Sao chép',
+      contact_fb_label: 'Facebook Cá Nhân:',
+      contact_fb_btn: 'Kết nối &rarr;',
+      contact_tiktok_label: 'Kênh TikTok:',
+      contact_tiktok_btn: 'Xem kênh &rarr;',
       contact_address_label: 'Địa chỉ thường trú:',
       contact_address_val: 'Kiên Đài - Tuyên Quang, Việt Nam',
       contact_address_badge: 'Quê quán',
@@ -117,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       print_btn: 'Print / PDF',
       hero_role_badge: 'Target: Software Engineering Intern / Developer',
       hero_greeting: 'Hello, I am',
-      hero_bio: 'I am a proactive and ambitious learner with strong problem-solving and troubleshooting skills. Highly persistent, resilient facing challenges, and always eager to learn and master new technologies.',
+      hero_bio: 'An energetic and passionate software developer specializing in .NET/C# and Microsoft SQL Server. Possesses a logical problem-solving mindset, methodical requirements analysis skills, a strong growth orientation, resilience facing challenges, and eagerness to master emerging technologies.',
       copy_tag: 'Copy',
       hero_address: 'Kien Dai - Tuyen Quang, Vietnam',
       hero_btn_projects: 'View Projects',
@@ -148,6 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
       proj_desc: 'Practical system implementation applying OOP architecture, database design, and agile workflows.',
       proj_featured_badge: 'Featured Project',
       proj_timeline: '23/08/2026 – 20/10/2026',
+      proj_live_tag: 'INTERACTIVE LIVE DEMO',
+      proj_live_notice: '<strong>Interactive Live Experience:</strong> You can interact directly with the embedded app below: Internal login (prefilled), create & manage parking contracts, change vehicle, search & filter statuses, view history audit, and toggle Light/Dark themes.',
       proj_source_btn: 'GitHub Repository',
       proj_readme_btn: 'Technical README.md',
       proj_name: 'Monthly Parking System (MPS) - MPS Residence',
@@ -190,8 +201,15 @@ document.addEventListener('DOMContentLoaded', () => {
       contact_tag: 'Get In Touch',
       contact_title: 'Contact Details',
       contact_desc: 'Open for internship opportunities, technical interviews, and collaborative engineering discussions.',
+      contact_phone_label: 'Phone Number:',
+      contact_call_btn: 'Call',
+      contact_send_btn: 'Email',
       contact_email_label: 'Email Address:',
       contact_copy_btn: 'Copy',
+      contact_fb_label: 'Facebook Profile:',
+      contact_fb_btn: 'Connect &rarr;',
+      contact_tiktok_label: 'TikTok Channel:',
+      contact_tiktok_btn: 'View &rarr;',
       contact_address_label: 'Location:',
       contact_address_val: 'Kien Dai - Tuyen Quang, Vietnam',
       contact_address_badge: 'Hometown',
@@ -365,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.removeChild(textArea);
   }
 
-  const copyElements = document.querySelectorAll('.copyable, .copy-email-btn');
+  const copyElements = document.querySelectorAll('.copyable, .copy-email-btn, .copy-phone-btn, [data-copy]');
   copyElements.forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
