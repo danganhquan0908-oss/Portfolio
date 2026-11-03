@@ -441,6 +441,38 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeLightbox();
   });
 
+  // Live App vs Screenshots Mode Switcher
+  const btnModeLive = document.getElementById('btnModeLive');
+  const btnModeScreenshots = document.getElementById('btnModeScreenshots');
+  const liveAppContainer = document.getElementById('liveAppContainer');
+  const screenshotsContainer = document.getElementById('screenshotsContainer');
+
+  if (btnModeLive && btnModeScreenshots && liveAppContainer && screenshotsContainer) {
+    btnModeLive.addEventListener('click', () => {
+      btnModeLive.classList.add('active');
+      btnModeScreenshots.classList.remove('active');
+      liveAppContainer.style.display = 'block';
+      screenshotsContainer.style.display = 'none';
+      if (galleryTitleBar) {
+        galleryTitleBar.textContent = currentLang === 'en'
+          ? 'MPS Residence - Live Web Application (Interactive)'
+          : 'MPS Residence - Ứng Dụng Quản Lý Xe (Live Demo)';
+      }
+    });
+
+    btnModeScreenshots.addEventListener('click', () => {
+      btnModeScreenshots.classList.add('active');
+      btnModeLive.classList.remove('active');
+      liveAppContainer.style.display = 'none';
+      screenshotsContainer.style.display = 'block';
+      if (galleryTitleBar) {
+        galleryTitleBar.textContent = currentLang === 'en'
+          ? 'MPS Residence - Screenshots Gallery'
+          : 'MPS Residence - Thư viện ảnh chụp màn hình';
+      }
+    });
+  }
+
   // --------------------------------------------------------------------------
   // 8. PROJECT README DRAWER TOGGLE
   // --------------------------------------------------------------------------

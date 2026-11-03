@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MPS Residence - Monthly Parking System Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    /* --------------------------------------------------------------------------
+       MPS RESIDENCE - THEME & STYLES (MATCHING USER SCREENSHOTS)
+       -------------------------------------------------------------------------- */
+    :root {
+      --mps-bg-body: #0d131f;
+      --mps-bg-card: #151d2e;
+      --mps-bg-card-alt: #1a2438;
+      --mps-bg-input: #0f1726;
+      --mps-border: rgba(255, 255, 255, 0.08);
+      --mps-border-focus: #0ea5e9;
+
+      --mps-text-primary: #f8fafc;
+      --mps-text-secondary: #94a3b8;
+      --mps-text-muted: #64748b;
+
+      --mps-emerald: #10b981;
+      --mps-emerald-bg: rgba(16, 185, 129, 0.15);
+      --mps-amber: #f59e0b;
+      --mps-amber-bg: rgba(245, 158, 11, 0.15);
+      --mps-rose: #ef4444;
+      --mps-rose-bg: rgba(239, 68, 68, 0.15);
+
+      --mps-teal: #0d9488;
+      --mps-teal-gradient: linear-gradient(135deg, #06b6d4 0%, #0d9488 100%);
+      --mps-green-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+
+      --mps-radius-sm: 8px;
+      --mps-radius-md: 12px;
+      --mps-radius-lg: 16px;
+
+      --font-main: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="light"] {
+      --mps-bg-body: #f8fafc;
+      --mps-bg-card: #ffffff;
+      --mps-bg-card-alt: #f1f5f9;
+      --mps-bg-input: #ffffff;
+      --mps-border: #e2e8f0;
+      --mps-border-focus: #0284c7;
+
+      --mps-text-primary: #0f172a;
+      --mps-text-secondary: #475569;
+      --mps-text-muted: #94a3b8;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--mps-bg-body);
+      color: var(--mps-text-primary);
+      line-height: 1.5;
+      font-size: 14px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    button, input, select {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* --------------------------------------------------------------------------
+       APP VIEW WRAPPER
+       -------------------------------------------------------------------------- */
+    .app-screen {
+      display: none;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .app-screen.active {
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.99); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* --------------------------------------------------------------------------
+       SCREEN 1: LOGIN
+       -------------------------------------------------------------------------- */
+    .login-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: radial-gradient(circle at 30% 50%, #152238 0%, #0d131f 70%);
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 820px;
+      background: #111a2c;
+      border: 1px solid var(--mps-border);
+      border-radius: var(--mps-radius-lg);
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      overflow: hidden;
+    }
+
+    .login-branding {
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #0f1626;
+      border-right: 1px solid var(--mps-border);
+      text-align: center;
+    }
+
+    .brand-logo-mp {
+      width: 86px;
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: var(--mps-text-secondary);
+    }
+
+    .login-form-panel {
+      padding: 2.75rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .panel-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.35rem;
+    }
+
+    .panel-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+
+    .panel-desc {
+      font-size: 0.825rem;
+      color: var(--mps-text-secondary);
+      margin-bottom: 1.75rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.15rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.775rem;
+      font-weight: 600;
+      color: var(--mps-text-secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-input {
+      width: 100%;
+      background: var(--mps-bg-input);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--mps-radius-sm);
+      padding: 0.65rem 0.95rem;
+      color: var(--mps-text-primary);
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .btn-login {
+      width: 100%;
+      background: var(--mps-teal-gradient);
+      color: #ffffff;
+      font-weight: 700;
+      border: none;
+      padding: 0.75rem;
+      border-radius: var(--mps-radius-sm);
+      margin-top: 0.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.35);
+    }
+
+    .btn-login:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    .login-footer-hint {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.775rem;
+      color: var(--mps-text-muted);
+    }
+
+    .login-footer-hint a {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    /* --------------------------------------------------------------------------
+       SCREEN 2: DASHBOARD
+       -------------------------------------------------------------------------- */
+    .app-header {
+      background: #111827;
+      border-bottom: 1px solid var(--mps-border);
+      padding: 0.75rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .app-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .app-logo svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .app-logo-text strong {
+      font-size: 0.95rem;
+      color: #ffffff;
+    }
+
+    .app-logo-text span {
+      display: block;
+      font-size: 0.675rem;
+      color: var(--mps-text-muted);
+    }
+
+    .school-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: #1e293b;
+      border: 1px solid var(--mps-border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.775rem;
+      color: var(--mps-text-secondary);
+    }
+
+    .school-badge .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--mps-emerald);
+      border-radius: 50%;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .user-pill {
+      font-size: 0.8rem;
+      color: var(--mps-text-secondary);
+    }
+
+    .btn-header {
+      background: #1e293b;
+      border: 1px solid var(--mps-border);
+      color: var(--mps-text-primary);
+      padding: 0.4rem 0.85rem;
+      border-radius: var(--mps-radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-header:hover {
+      background: #334155;
+    }
+
+    .dashboard-body {
+      flex: 1;
+      padding: 2rem 1.75rem;
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .page-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1.85rem;
+    }
+
+    .title-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--mps-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.25rem;
+    }
+
+    .page-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .page-subtitle {
+      font-size: 0.85rem;
+      color: var(--mps-text-secondary);
+    }
+
+    .date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: #1e293b;
+      border: 1px solid var(--mps-border);
+      padding: 0.45rem 0.95rem;
+      border-radius: var(--mps-radius-sm);
+      font-size: 0.8rem;
+      color: var(--mps-text-secondary);
+      font-weight: 500;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: #141c2c;
+      border: 1px solid var(--mps-border);
+      border-radius: var(--mps-radius-md);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .stat-card-title {
+      font-size: 0.825rem;
+      color: var(--mps-text-secondary);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .stat-card-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-card-sub {
+      font-size: 0.75rem;
+      color: var(--mps-text-muted);
+    }
+
+    .stat-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .icon-emerald { background: rgba(16, 185, 129, 0.2); color: var(--mps-emerald); }
+    .icon-amber { background: rgba(245, 158, 11, 0.2); color: var(--mps-amber); }
+    .icon-rose { background: rgba(239, 68, 68, 0.2); color: var(--mps-rose); }
+
+    /* Table Container */
+    .table-card {
+      background: #141c2c;
+      border: 1px solid var(--mps-border);
+      border-radius: var(--mps-radius-md);
+      overflow: hidden;
+    }
+
+    .table-top-bar {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid var(--mps-border);
+    }
+
+    .table-title-group h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+    }
+
+    .table-title-group p {
+      font-size: 0.8rem;
+      color: var(--mps-text-muted);
+    }
+
+    .table-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-add-contract {
+      background: #047857;
+      color: #ffffff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: var(--mps-radius-sm);
+      font-weight: 700;
+      font-size: 0.825rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-add-contract:hover {
+      background: #059669;
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-input {
+      background: #0f1726;
+      border: 1px solid var(--mps-border);
+      border-radius: var(--mps-radius-sm);
+      padding: 0.5rem 0.85rem 0.5rem 2.25rem;
+      color: var(--mps-text-primary);
+      font-size: 0.825rem;
+      width: 240px;
+    }
+
+    .search-box svg {
+      position: absolute;
+      top: 50%;
+      left: 0.75rem;
+      transform: translateY(-50%);
+      color: var(--mps-text-muted);
+      pointer-events: none;
+    }
+
+    .status-select {
+      background: #0f1726;
+      border: 1px solid var(--mps-border);
+      border-radius: var(--mps-radius-sm);
+      padding: 0.5rem 0.85rem;
+      color: var(--mps-text-primary);
+      font-size: 0.825rem;
+      cursor: pointer;
+    }
+
+    .btn-reload {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--mps-radius-sm);
+      background: #0f1726;
+      border: 1px solid var(--mps-border);
+      color: var(--mps-text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* Table element */
+    .contracts-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+
+    .contracts-table th {
+      padding: 0.85rem 1.25rem;
+      font-size: 0.725rem;
+      font-weight: 700;
+      color: var(--mps-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--mps-border);
+      background: #111724;
+    }
+
+    .contracts-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--mps-border);
+      vertical-align: middle;
+    }
+
+    .contracts-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .plate-badge {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .student-info strong {
+      display: block;
+      color: var(--mps-text-primary);
+      font-size: 0.875rem;
+    }
+
+    .student-info span {
+      display: block;
+      font-size: 0.725rem;
+      color: var(--mps-text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .room-badge {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      background: #1e293b;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.775rem;
+    }
+
+    .date-cell strong {
+      display: block;
+      font-size: 0.825rem;
+    }
+
+    .date-cell span {
+      display: block;
+      font-size: 0.725rem;
+      color: var(--mps-text-muted);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .status-active { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+    .status-expiring { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+    .status-expired { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+
+    .action-group {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-action-sm {
+      background: #1e293b;
+      border: 1px solid var(--mps-border);
+      color: var(--mps-text-secondary);
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-action-sm:hover {
+      background: #334155;
+      color: #ffffff;
+    }
+
+    /* --------------------------------------------------------------------------
+       SCREEN 3: MODAL THÊM HỢP ĐỒNG MỚI
+       -------------------------------------------------------------------------- */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(5, 8, 15, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .modal-card {
+      width: 100%;
+      max-width: 680px;
+      background: #151d2e;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--mps-radius-lg);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .modal-subtitle {
+      font-size: 0.825rem;
+      color: var(--mps-text-secondary);
+    }
+
+    .btn-close-modal {
+      background: #1e293b;
+      border: 1px solid var(--mps-border);
+      color: var(--mps-text-primary);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--mps-radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.15rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+    }
+
+    .btn-modal-cancel {
+      background: #1e293b;
+      border: 1px solid var(--mps-border);
+      color: var(--mps-text-primary);
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--mps-radius-sm);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-modal-submit {
+      background: #047857;
+      color: #ffffff;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--mps-radius-sm);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(4, 120, 87, 0.4);
+    }
+
+    .btn-modal-submit:hover {
+      background: #059669;
+    }
+
+    /* Toast */
+    .mps-toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #1e293b;
+      border: 1px solid #38bdf8;
+      color: #ffffff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: none;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .mps-toast.show {
+      display: block;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @media (max-width: 768px) {
+      .login-box { grid-template-columns: 1fr; }
+      .login-branding { display: none; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .modal-grid { grid-template-columns: 1fr; }
+      .table-actions { width: 100%; }
+      .search-input { width: 100%; }
+      .table-card { overflow-x: auto; }
+      .contracts-table { min-width: 600px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================================
+       SCREEN 1: LOGIN
+       ====================================================================== -->
+  <section id="loginScreen" class="app-screen active">
+    <div class="login-container">
+      <div class="login-box">
+        
+        <!-- Left Branding Panel -->
+        <div class="login-branding">
+          <div class="brand-logo-mp">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 75V25L45 55L70 25V75" stroke="url(#mpGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M70 75C80 75 88 67 88 55C88 43 80 35 70 35" stroke="url(#mpGrad2)" stroke-width="12" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="mpGrad" x1="20" y1="25" x2="70" y2="75" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#38bdf8"/>
+                  <stop offset="1" stop-color="#818cf8"/>
+                </linearGradient>
+                <linearGradient id="mpGrad2" x1="70" y1="35" x2="88" y2="75" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#818cf8"/>
+                  <stop offset="1" stop-color="#f472b6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="brand-pill">HỆ THỐNG QUẢN LÝ KTX THÔNG MINH</span>
+          <h2 class="brand-title">MPS · Residence</h2>
+          <p class="brand-sub">Monthly Parking System</p>
+        </div>
+
+        <!-- Right Form Panel -->
+        <div class="login-form-panel">
+          <span class="panel-tag">TRUY CẬP NỘI BỘ</span>
+          <h1 class="panel-heading">Đăng nhập hệ thống</h1>
+          <p class="panel-desc">Dành cho Quản sinh, Bảo vệ và nhân viên KTX.</p>
+
+          <form id="loginForm">
+            <div class="form-group">
+              <label class="form-label">Mã trường</label>
+              <input type="text" class="form-input" id="loginSchoolCode" value="DTC-ICTU" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tên đăng nhập</label>
+              <input type="text" class="form-input" id="loginUsername" value="CNTT" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Mật khẩu</label>
+              <input type="password" class="form-input" id="loginPassword" value="DemoPassword123" required>
+            </div>
+
+            <button type="submit" class="btn-login" id="btnLoginSubmit">
+              <span>Đăng nhập</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+
+            <p class="login-footer-hint">Chưa có tài khoản trường? <a href="#" id="linkDemoNotice">Đăng ký ngay</a></p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SCREEN 2: DASHBOARD
+       ====================================================================== -->
+  <section id="dashboardScreen" class="app-screen">
+    
+    <!-- Top Navigation Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="app-logo">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 75V25L45 55L70 25V75" stroke="#38bdf8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M70 75C80 75 88 67 88 55C88 43 80 35 70 35" stroke="#f472b6" stroke-width="12" stroke-linecap="round"/>
+          </svg>
+          <div class="app-logo-text">
+            <strong>MPS · Residence</strong>
+            <span>Monthly Parking System</span>
+          </div>
+        </div>
+
+        <div class="school-badge">
+          <span class="dot"></span>
+          <span>Trường Đại Học Công Nghệ Thông Tin Và Truyền Thông Thái Nguyên</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <span class="user-pill">CNTT · Quản sinh</span>
+        <button type="button" class="btn-header" id="btnAccountInfo">Tài khoản</button>
+        <button type="button" class="btn-header" id="btnLogout">Đăng xuất</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-body">
+      
+      <div class="page-title-row">
+        <div>
+          <span class="title-tag">TỔNG QUAN BÃI XE</span>
+          <h1 class="page-title">Quản lý gửi xe tháng</h1>
+          <p class="page-subtitle">Theo dõi hợp đồng và thời hạn gửi xe tại ký túc xá.</p>
+        </div>
+        <div class="date-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span id="currentDateBadge">Thứ Ba, 3 tháng 11, 2026</span>
+        </div>
+      </div>
+
+      <!-- Stats Cards Row -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div>
+            <div class="stat-card-title">Đang hoạt động</div>
+            <div class="stat-card-num" id="statActive">2</div>
+            <div class="stat-card-sub">Hợp đồng còn hiệu lực</div>
+          </div>
+          <div class="stat-icon icon-emerald">✓</div>
+        </div>
+
+        <div class="stat-card">
+          <div>
+            <div class="stat-card-title">Sắp hết hạn</div>
+            <div class="stat-card-num" id="statExpiring">1</div>
+            <div class="stat-card-sub">Còn từ 0 đến 3 ngày</div>
+          </div>
+          <div class="stat-icon icon-amber">⏳</div>
+        </div>
+
+        <div class="stat-card">
+          <div>
+            <div class="stat-card-title">Đã hết hạn</div>
+            <div class="stat-card-num" id="statExpired">3</div>
+            <div class="stat-card-sub">Cần kiểm tra gia hạn</div>
+          </div>
+          <div class="stat-icon icon-rose">✕</div>
+        </div>
+      </div>
+
+      <!-- Contracts Table Card -->
+      <div class="table-card">
+        <div class="table-top-bar">
+          <div class="table-title-group">
+            <h3>Danh sách hợp đồng</h3>
+            <p>Tra cứu theo biển số, sinh viên hoặc phòng</p>
+          </div>
+
+          <div class="table-actions">
+            <button type="button" class="btn-add-contract" id="btnOpenAddModal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>+ Thêm hợp đồng</span>
+            </button>
+
+            <div class="search-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="searchInput" class="search-input" placeholder="Tìm biển số, tên, mã SV, phòng...">
+            </div>
+
+            <select id="statusFilter" class="status-select">
+              <option value="ALL">Tất cả trạng thái</option>
+              <option value="ACTIVE">Đang hoạt động</option>
+              <option value="EXPIRING">Sắp hết hạn</option>
+              <option value="EXPIRED">Đã hết hạn</option>
+            </select>
+
+            <button type="button" class="btn-reload" id="btnResetFilters" title="Đặt lại bộ lọc">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <table class="contracts-table">
+          <thead>
+            <tr>
+              <th>BIỂN SỐ XE</th>
+              <th>SINH VIÊN</th>
+              <th>PHÒNG</th>
+              <th>NGÀY BẮT ĐẦU</th>
+              <th>NGÀY HẾT HẠN</th>
+              <th>TRẠNG THÁI</th>
+              <th>THAO TÁC</th>
+            </tr>
+          </thead>
+          <tbody id="contractsTableBody">
+            <!-- Rendered dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </section>
+
+  <!-- ======================================================================
+       SCREEN 3: MODAL THÊM HỢP ĐỒNG MỚI
+       ====================================================================== -->
+  <div id="addContractModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Thêm hợp đồng mới</h3>
+          <p class="modal-subtitle">Nhập thông tin sinh viên, phương tiện và thời hạn gửi xe.</p>
+        </div>
+        <button type="button" class="btn-close-modal" id="btnCloseModal">Đóng</button>
+      </div>
+
+      <form id="addContractForm">
+        <div class="modal-grid">
+          <div class="form-group">
+            <label class="form-label">Mã sinh viên *</label>
+            <input type="text" class="form-input" id="newStudentId" placeholder="Ví dụ: SV2026001" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Họ và tên *</label>
+            <input type="text" class="form-input" id="newStudentName" placeholder="Ví dụ: Nguyễn Văn A" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Phòng *</label>
+            <input type="text" class="form-input" id="newRoom" placeholder="Ví dụ: A203" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email sinh viên (nhận nhắc hạn) *</label>
+            <input type="email" class="form-input" id="newEmail" placeholder="sinhvien@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Số điện thoại (Mã hóa AES-GCM)</label>
+            <input type="tel" class="form-input" id="newPhone" placeholder="Số liên hệ sinh viên">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Biển số xe *</label>
+            <input type="text" class="form-input" id="newPlate" placeholder="Ví dụ: 59A12345" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Ngày bắt đầu</label>
+            <input type="date" class="form-input" id="newStartDate" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Ngày hết hạn</label>
+            <input type="date" class="form-input" id="newEndDate" required>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-modal-cancel" id="btnCancelModal">Hủy</button>
+          <button type="submit" class="btn-modal-submit">Tạo hợp đồng</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="mpsToast" class="mps-toast">Thông báo</div>
+
+  <!-- ----------------------------------------------------------------------
+       JAVASCRIPT LOGIC
+       ---------------------------------------------------------------------- -->
+  <script>
+    // Initial Dataset matching user screenshots
+    let contracts = [
+      {
+        id: 1,
+        plate: '22FA-04493',
+        name: 'Đặng Anh Quân',
+        code: 'DTC255190014',
+        room: 'A106',
+        startDate: '06/10/2026',
+        endDate: '05/11/2026',
+        expireDays: 2,
+        status: 'EXPIRING',
+        statusLabel: 'Sắp hết hạn'
+      },
+      {
+        id: 2,
+        plate: '22S1-67895',
+        name: 'Đặng Chí Thành',
+        code: 'DTC265290025',
+        room: 'A819',
+        startDate: '10/10/2026',
+        endDate: '20/11/2026',
+        expireDays: 17,
+        status: 'ACTIVE',
+        statusLabel: 'Đang hoạt động'
+      },
+      {
+        id: 3,
+        plate: '22F1-55876',
+        name: 'Hà Thị Huyền',
+        code: 'DTC24498762',
+        room: 'A819',
+        startDate: '04/10/2026',
+        endDate: '05/10/2026',
+        expireDays: -29,
+        status: 'EXPIRED',
+        statusLabel: 'Đã hết hạn'
+      },
+      {
+        id: 4,
+        plate: '30HN-56789',
+        name: 'Phùng Hoàng Dương',
+        code: 'DTC255190087',
+        room: 'A210',
+        startDate: '02/10/2026',
+        endDate: '09/10/2026',
+        expireDays: -25,
+        status: 'EXPIRED',
+        statusLabel: 'Đã hết hạn'
+      }
+    ];
+
+    const loginScreen = document.getElementById('loginScreen');
+    const dashboardScreen = document.getElementById('dashboardScreen');
+    const loginForm = document.getElementById('loginForm');
+    const btnLogout = document.getElementById('btnLogout');
+    const mpsToast = document.getElementById('mpsToast');
+
+    function showToast(msg) {
+      mpsToast.textContent = msg;
+      mpsToast.classList.add('show');
+      setTimeout(() => mpsToast.classList.remove('show'), 2800);
+    }
+
+    // 1. Login / Logout Flow
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      loginScreen.classList.remove('active');
+      dashboardScreen.classList.add('active');
+      showToast('Đăng nhập thành công! Chào mừng Quản sinh CNTT.');
+      renderTable();
+    });
+
+    btnLogout.addEventListener('click', () => {
+      dashboardScreen.classList.remove('active');
+      loginScreen.classList.add('active');
+      showToast('Đã đăng xuất an toàn.');
+    });
+
+    document.getElementById('btnAccountInfo').addEventListener('click', () => {
+      showToast('Tài khoản: Quản sinh CNTT - Phân quyền DTC-ICTU');
+    });
+
+    document.getElementById('linkDemoNotice').addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast('Mở cổng đăng ký trường: http://localhost:5127/register');
+    });
+
+    // 2. Render Table & Stats
+    const tableBody = document.getElementById('contractsTableBody');
+    const statActive = document.getElementById('statActive');
+    const statExpiring = document.getElementById('statExpiring');
+    const statExpired = document.getElementById('statExpired');
+    const searchInput = document.getElementById('searchInput');
+    const statusFilter = document.getElementById('statusFilter');
+
+    function updateStats() {
+      const activeCount = contracts.filter(c => c.status === 'ACTIVE').length;
+      const expiringCount = contracts.filter(c => c.status === 'EXPIRING').length;
+      const expiredCount = contracts.filter(c => c.status === 'EXPIRED').length;
+
+      statActive.textContent = activeCount;
+      statExpiring.textContent = expiringCount;
+      statExpired.textContent = expiredCount;
+    }
+
+    function renderTable() {
+      updateStats();
+      const query = (searchInput.value || '').trim().toLowerCase();
+      const filter = statusFilter.value;
+
+      const filtered = contracts.filter(c => {
+        const matchesQuery = 
+          c.plate.toLowerCase().includes(query) ||
+          c.name.toLowerCase().includes(query) ||
+          c.code.toLowerCase().includes(query) ||
+          c.room.toLowerCase().includes(query);
+
+        const matchesStatus = (filter === 'ALL') || (c.status === filter);
+        return matchesQuery && matchesStatus;
+      });
+
+      if (filtered.length === 0) {
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="7" style="text-align: center; color: var(--mps-text-muted); padding: 2rem;">
+              Không tìm thấy hợp đồng nào khớp với từ khóa tìm kiếm.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tableBody.innerHTML = filtered.map(c => {
+        let statusClass = 'status-active';
+        let statusDot = '🟢';
+        let daysText = 'Còn hiệu lực';
+
+        if (c.status === 'EXPIRING') {
+          statusClass = 'status-expiring';
+          statusDot = '🟠';
+          daysText = `Còn ${c.expireDays} ngày`;
+        } else if (c.status === 'EXPIRED') {
+          statusClass = 'status-expired';
+          statusDot = '🔴';
+          daysText = `Quá hạn ${Math.abs(c.expireDays)} ngày`;
+        }
+
+        return `
+          <tr>
+            <td><span class="plate-badge">${c.plate}</span></td>
+            <td>
+              <div class="student-info">
+                <strong>${c.name}</strong>
+                <span>${c.code}</span>
+              </div>
+            </td>
+            <td><span class="room-badge">${c.room}</span></td>
+            <td>
+              <div class="date-cell">
+                <strong>${c.startDate}</strong>
+              </div>
+            </td>
+            <td>
+              <div class="date-cell">
+                <strong>${c.endDate}</strong>
+                <span>${daysText}</span>
+              </div>
+            </td>
+            <td>
+              <span class="status-pill ${statusClass}">
+                <span>${statusDot}</span>
+                <span>${c.statusLabel}</span>
+              </span>
+            </td>
+            <td>
+              <div class="action-group">
+                <button type="button" class="btn-action-sm" onclick="handleAction('Sửa', '${c.plate}')">Sửa</button>
+                <button type="button" class="btn-action-sm" onclick="handleAction('Đổi xe', '${c.plate}')">Đổi xe</button>
+                <button type="button" class="btn-action-sm" onclick="handleAction('Hủy', '${c.plate}')">Hủy</button>
+                <button type="button" class="btn-action-sm" onclick="handleAction('Lịch sử', '${c.plate}')">Lịch sử</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    window.handleAction = function(type, plate) {
+      if (type === 'Hủy') {
+        if (confirm(`Bạn có chắc chắn muốn hủy hợp đồng cho xe ${plate}?`)) {
+          contracts = contracts.filter(c => c.plate !== plate);
+          renderTable();
+          showToast(`Đã hủy hợp đồng cho xe ${plate}`);
+        }
+      } else if (type === 'Đổi xe') {
+        const newPlate = prompt(`Nhập biển số xe mới cần đổi cho hợp đồng ${plate}:`, '22B1-99999');
+        if (newPlate) {
+          const item = contracts.find(c => c.plate === plate);
+          if (item) {
+            item.plate = newPlate;
+            renderTable();
+            showToast(`Đã lưu lịch sử và cập nhật sang biển số mới: ${newPlate}`);
+          }
+        }
+      } else {
+        showToast(`Đã mở giao diện ${type} cho xe ${plate}`);
+      }
+    };
+
+    searchInput.addEventListener('input', renderTable);
+    statusFilter.addEventListener('change', renderTable);
+    document.getElementById('btnResetFilters').addEventListener('click', () => {
+      searchInput.value = '';
+      statusFilter.value = 'ALL';
+      renderTable();
+      showToast('Đã đặt lại bộ lọc');
+    });
+
+    // 3. Modal Form Logic
+    const addContractModal = document.getElementById('addContractModal');
+    const btnOpenAddModal = document.getElementById('btnOpenAddModal');
+    const btnCloseModal = document.getElementById('btnCloseModal');
+    const btnCancelModal = document.getElementById('btnCancelModal');
+    const addContractForm = document.getElementById('addContractForm');
+
+    // Default dates
+    const today = new Date();
+    const nextMonth = new Date();
+    nextMonth.setMonth(today.getMonth() + 1);
+
+    document.getElementById('newStartDate').value = today.toISOString().split('T')[0];
+    document.getElementById('newEndDate').value = nextMonth.toISOString().split('T')[0];
+
+    function openModal() {
+      addContractModal.classList.add('open');
+    }
+
+    function closeModal() {
+      addContractModal.classList.remove('open');
+    }
+
+    btnOpenAddModal.addEventListener('click', openModal);
+    btnCloseModal.addEventListener('click', closeModal);
+    btnCancelModal.addEventListener('click', closeModal);
+
+    addContractForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const code = document.getElementById('newStudentId').value.trim();
+      const name = document.getElementById('newStudentName').value.trim();
+      const room = document.getElementById('newRoom').value.trim();
+      const email = document.getElementById('newEmail').value.trim();
+      const plate = document.getElementById('newPlate').value.trim().toUpperCase();
+      const start = document.getElementById('newStartDate').value;
+      const end = document.getElementById('newEndDate').value;
+
+      // format dates
+      const startParts = start.split('-');
+      const endParts = end.split('-');
+      const formattedStart = `${startParts[2]}/${startParts[1]}/${startParts[0]}`;
+      const formattedEnd = `${endParts[2]}/${endParts[1]}/${endParts[0]}`;
+
+      const newContract = {
+        id: Date.now(),
+        plate: plate,
+        name: name,
+        code: code,
+        room: room,
+        startDate: formattedStart,
+        endDate: formattedEnd,
+        expireDays: 30,
+        status: 'ACTIVE',
+        statusLabel: 'Đang hoạt động'
+      };
+
+      contracts.unshift(newContract);
+      renderTable();
+      closeModal();
+      addContractForm.reset();
+      showToast(`Tạo hợp đồng thành công! Đã mã hóa SĐT (AES-GCM) và kích hoạt gửi OTP qua ${email}`);
+    });
+
+    // Initial render
+    renderTable();
+  </script>
+</body>
+</html>

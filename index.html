@@ -417,7 +417,7 @@
             <span class="tech-chip">SMTP OTP</span>
           </div>
 
-          <!-- INTERACTIVE SCREENSHOT GALLERY (Apple Window Mockup) -->
+          <!-- INTERACTIVE LIVE WEB APP & SCREENSHOT SHOWCASE (Apple Window Mockup) -->
           <div class="project-gallery-wrapper">
             <div class="gallery-window-header">
               <div class="window-controls">
@@ -425,46 +425,59 @@
                 <span class="w-dot w-yellow"></span>
                 <span class="w-dot w-green"></span>
               </div>
-              <div class="window-title-bar" id="galleryTitleBar">MPS Residence - Dashboard Quản lý xe tháng</div>
-              <div class="window-action-zoom" title="Nhấn vào hình ảnh để xem ảnh kích thước đầy đủ">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <polyline points="9 21 3 21 3 15"></polyline>
-                  <line x1="21" y1="3" x2="14" y2="10"></line>
-                  <line x1="3" y1="21" x2="10" y2="14"></line>
-                </svg>
+              
+              <div class="window-title-bar" id="galleryTitleBar">MPS Residence - Ứng Dụng Quản Lý Xe (Live Demo)</div>
+
+              <div class="window-mode-switch">
+                <button type="button" class="window-tab-btn active" id="btnModeLive" title="Trải nghiệm trực tiếp ứng dụng web MPS">
+                  <span>🚀 Web App Trực Tiếp</span>
+                </button>
+                <button type="button" class="window-tab-btn" id="btnModeScreenshots" title="Xem bộ ảnh chụp màn hình">
+                  <span>📷 Ảnh chụp</span>
+                </button>
+                <a href="mps-demo/index.html" target="_blank" rel="noopener noreferrer" class="window-tab-btn" title="Mở ứng dụng MPS trong tab riêng">
+                  <span>↗ Mở tab mới</span>
+                </a>
               </div>
             </div>
 
-            <div class="gallery-viewport" id="galleryViewport" title="Nhấn để phóng to ảnh">
-              <img id="galleryMainImg" src="assets/projects/mps-dashboard.png" alt="Ảnh minh họa Dashboard MPS" class="gallery-img">
-              <div class="gallery-zoom-badge">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  <line x1="11" y1="8" x2="11" y2="14"></line>
-                  <line x1="8" y1="11" x2="14" y2="11"></line>
-                </svg>
-                <span data-i18n="proj_zoom_hint">Nhấn để xem kích thước lớn</span>
-              </div>
+            <!-- LIVE WEB APP CONTAINER (EMBEDDED IFRAME) -->
+            <div class="live-app-viewport" id="liveAppContainer">
+              <iframe id="mpsIframe" src="mps-demo/index.html" title="MPS Residence Web App" loading="lazy"></iframe>
             </div>
 
-            <!-- Thumbnail Selector Buttons -->
-            <div class="gallery-thumbnails">
-              <button type="button" class="thumb-btn active ios-glass-panel" data-src="assets/projects/mps-dashboard.png" data-title="Dashboard Quản lý xe tháng - Thống kê trạng thái hợp đồng, tìm kiếm và phân trang">
-                <img src="assets/projects/mps-dashboard.png" alt="Thumb Dashboard">
-                <span class="thumb-label" data-i18n="thumb_dashboard">1. Dashboard Quản lý</span>
-              </button>
+            <!-- SCREENSHOT GALLERY CONTAINER (CAN BE TOGGLED) -->
+            <div class="screenshots-wrapper" id="screenshotsContainer" style="display: none;">
+              <div class="gallery-viewport" id="galleryViewport" title="Nhấn để phóng to ảnh">
+                <img id="galleryMainImg" src="assets/projects/mps-dashboard.png" alt="Ảnh minh họa Dashboard MPS" class="gallery-img">
+                <div class="gallery-zoom-badge">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span data-i18n="proj_zoom_hint">Nhấn để xem kích thước lớn</span>
+                </div>
+              </div>
 
-              <button type="button" class="thumb-btn ios-glass-panel" data-src="assets/projects/mps-login.png" data-title="Truy cập nội bộ - Đăng nhập hệ thống theo mã trường (DTC-ICTU) & phân quyền vai trò">
-                <img src="assets/projects/mps-login.png" alt="Thumb Login">
-                <span class="thumb-label" data-i18n="thumb_login">2. Đăng nhập phân quyền</span>
-              </button>
+              <!-- Thumbnail Selector Buttons -->
+              <div class="gallery-thumbnails">
+                <button type="button" class="thumb-btn active ios-glass-panel" data-src="assets/projects/mps-dashboard.png" data-title="Dashboard Quản lý xe tháng - Thống kê trạng thái hợp đồng, tìm kiếm và phân trang">
+                  <img src="assets/projects/mps-dashboard.png" alt="Thumb Dashboard">
+                  <span class="thumb-label" data-i18n="thumb_dashboard">1. Dashboard Quản lý</span>
+                </button>
 
-              <button type="button" class="thumb-btn ios-glass-panel" data-src="assets/projects/mps-modal.png" data-title="Modal Thêm hợp đồng mới - Nhập thông tin sinh viên, biển số xe & mã hóa số điện thoại">
-                <img src="assets/projects/mps-modal.png" alt="Thumb Modal">
-                <span class="thumb-label" data-i18n="thumb_modal">3. Tạo hợp đồng gửi xe</span>
-              </button>
+                <button type="button" class="thumb-btn ios-glass-panel" data-src="assets/projects/mps-login.png" data-title="Truy cập nội bộ - Đăng nhập hệ thống theo mã trường (DTC-ICTU) & phân quyền vai trò">
+                  <img src="assets/projects/mps-login.png" alt="Thumb Login">
+                  <span class="thumb-label" data-i18n="thumb_login">2. Đăng nhập phân quyền</span>
+                </button>
+
+                <button type="button" class="thumb-btn ios-glass-panel" data-src="assets/projects/mps-modal.png" data-title="Modal Thêm hợp đồng mới - Nhập thông tin sinh viên, biển số xe & mã hóa số điện thoại">
+                  <img src="assets/projects/mps-modal.png" alt="Thumb Modal">
+                  <span class="thumb-label" data-i18n="thumb_modal">3. Tạo hợp đồng gửi xe</span>
+                </button>
+              </div>
             </div>
           </div>
 

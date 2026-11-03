@@ -1049,6 +1049,55 @@ button {
   letter-spacing: -0.2px;
 }
 
+.window-mode-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(15, 8, 18, 0.55);
+  border: 1px solid var(--glass-panel-border);
+  border-radius: var(--radius-full);
+  padding: 2px 4px;
+}
+
+.window-tab-btn {
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: var(--spring-transition);
+  display: inline-flex;
+  align-items: center;
+}
+
+.window-tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.window-tab-btn.active {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+.live-app-viewport {
+  width: 100%;
+  height: 630px;
+  background: #0d131f;
+  position: relative;
+  overflow: hidden;
+}
+
+#mpsIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
 .window-action-zoom {
   color: var(--text-muted);
   cursor: pointer;
