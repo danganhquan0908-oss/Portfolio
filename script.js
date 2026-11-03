@@ -290,12 +290,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('cv_theme') || 'dark';
   htmlElement.setAttribute('data-theme', savedTheme);
 
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+  const updateThemeMeta = (theme) => {
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', theme === 'dark' ? '#0d0906' : '#faf7f2');
+    }
+  };
+  updateThemeMeta(savedTheme);
+
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
       const activeTheme = htmlElement.getAttribute('data-theme');
       const targetTheme = activeTheme === 'dark' ? 'light' : 'dark';
       htmlElement.setAttribute('data-theme', targetTheme);
       localStorage.setItem('cv_theme', targetTheme);
+      updateThemeMeta(targetTheme);
     });
   }
 
