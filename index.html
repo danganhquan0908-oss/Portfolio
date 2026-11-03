@@ -377,6 +377,17 @@
             </div>
 
             <div class="project-actions-top">
+              <button type="button" id="toggleReadmeBtn" class="btn btn-sm btn-outline ios-glass-btn readme-toggle-btn" title="Xem tài liệu kỹ thuật chi tiết">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span data-i18n="proj_readme_btn">Tài liệu README.md</span>
+              </button>
+
               <a href="https://github.com/danganhquan0908-oss/Monthly-Parking-System" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-github ios-glass-btn" title="Xem mã nguồn trên GitHub">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -391,16 +402,126 @@
             </div>
           </div>
 
-          <h3 class="project-title" data-i18n="proj_name">Monthly Parking System (MPS)</h3>
-          <p class="project-subtitle" data-i18n="proj_subtitle">Hệ thống Quản lý Bãi đỗ xe Tháng thông minh và Tự động hóa kiểm soát</p>
+          <h3 class="project-title" data-i18n="proj_name">Monthly Parking System (MPS) - MPS Residence</h3>
+          <p class="project-subtitle" data-i18n="proj_subtitle">Hệ thống Quản lý Bãi đỗ xe Ký túc xá Thông minh, Đa trường (Multi-Tenant) & Tự động hóa gửi Email</p>
 
           <div class="project-tech-badges">
-            <span class="tech-chip">C#</span>
-            <span class="tech-chip">.NET Core</span>
+            <span class="tech-chip">ASP.NET Core (.NET 10)</span>
+            <span class="tech-chip">Vue 3.5 (SPA)</span>
             <span class="tech-chip">Microsoft SQL Server</span>
-            <span class="tech-chip">OOP Architecture</span>
-            <span class="tech-chip">Agile / Scrum</span>
-            <span class="tech-chip">Git Version Control</span>
+            <span class="tech-chip">Multi-Tenant Architecture</span>
+            <span class="tech-chip">AES-GCM Encryption</span>
+            <span class="tech-chip">Background Services</span>
+            <span class="tech-chip">Polly Retry & Queues</span>
+            <span class="tech-chip">Automated Tests</span>
+            <span class="tech-chip">SMTP OTP</span>
+          </div>
+
+          <!-- INTERACTIVE SCREENSHOT GALLERY (Apple Window Mockup) -->
+          <div class="project-gallery-wrapper">
+            <div class="gallery-window-header">
+              <div class="window-controls">
+                <span class="w-dot w-red"></span>
+                <span class="w-dot w-yellow"></span>
+                <span class="w-dot w-green"></span>
+              </div>
+              <div class="window-title-bar" id="galleryTitleBar">MPS Residence - Dashboard Quản lý xe tháng</div>
+              <div class="window-action-zoom" title="Nhấn vào hình ảnh để xem ảnh kích thước đầy đủ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <polyline points="9 21 3 21 3 15"></polyline>
+                  <line x1="21" y1="3" x2="14" y2="10"></line>
+                  <line x1="3" y1="21" x2="10" y2="14"></line>
+                </svg>
+              </div>
+            </div>
+
+            <div class="gallery-viewport" id="galleryViewport" title="Nhấn để phóng to ảnh">
+              <img id="galleryMainImg" src="assets/projects/mps-dashboard.png" alt="Ảnh minh họa Dashboard MPS" class="gallery-img">
+              <div class="gallery-zoom-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="11" y1="8" x2="11" y2="14"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+                <span data-i18n="proj_zoom_hint">Nhấn để xem kích thước lớn</span>
+              </div>
+            </div>
+
+            <!-- Thumbnail Selector Buttons -->
+            <div class="gallery-thumbnails">
+              <button type="button" class="thumb-btn active ios-glass-panel" data-src="assets/projects/mps-dashboard.png" data-title="Dashboard Quản lý xe tháng - Thống kê trạng thái hợp đồng, tìm kiếm và phân trang">
+                <img src="assets/projects/mps-dashboard.png" alt="Thumb Dashboard">
+                <span class="thumb-label" data-i18n="thumb_dashboard">1. Dashboard Quản lý</span>
+              </button>
+
+              <button type="button" class="thumb-btn ios-glass-panel" data-src="assets/projects/mps-login.png" data-title="Truy cập nội bộ - Đăng nhập hệ thống theo mã trường (DTC-ICTU) & phân quyền vai trò">
+                <img src="assets/projects/mps-login.png" alt="Thumb Login">
+                <span class="thumb-label" data-i18n="thumb_login">2. Đăng nhập phân quyền</span>
+              </button>
+
+              <button type="button" class="thumb-btn ios-glass-panel" data-src="assets/projects/mps-modal.png" data-title="Modal Thêm hợp đồng mới - Nhập thông tin sinh viên, biển số xe & mã hóa số điện thoại">
+                <img src="assets/projects/mps-modal.png" alt="Thumb Modal">
+                <span class="thumb-label" data-i18n="thumb_modal">3. Tạo hợp đồng gửi xe</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- COLLAPSIBLE README.MD DOCUMENTATION DRAWER -->
+          <div class="project-readme-container ios-glass-panel" id="projectReadmeContainer">
+            <div class="readme-header-bar">
+              <div class="readme-title-group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                <h4 data-i18n="readme_heading">Tài Liệu Dự Án Chi Tiết (README.md)</h4>
+              </div>
+              <button type="button" id="closeReadmeBtn" class="btn-icon ios-glass-btn btn-sm" aria-label="Đóng tài liệu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+
+            <div class="readme-content-body">
+              <div class="readme-block">
+                <h5>1. Giới thiệu tổng quan hệ thống</h5>
+                <p><strong>Monthly Parking System (MPS)</strong> là hệ thống quản lý hợp đồng gửi xe tháng tại ký túc xá sinh viên. Ứng dụng hỗ trợ nhân sự nhà trường quản lý sinh viên, phương tiện, thời hạn hợp đồng và theo dõi toàn bộ lịch sử thay đổi. Hệ thống được kiến trúc theo mô hình <strong>Backend tập trung phục vụ đa trường (Multi-tenant)</strong>; dữ liệu và tài khoản được phân tách triệt để theo từng trường thông qua <code>SchoolId</code>.</p>
+              </div>
+
+              <div class="readme-block">
+                <h5>2. Tính năng kỹ thuật cốt lõi</h5>
+                <ul class="readme-list">
+                  <li><strong>Quản lý hợp đồng & xe:</strong> Tạo, tra cứu, cập nhật, hủy hợp đồng; quản lý biển số xe và lưu vết toàn bộ lịch sử đổi xe, hủy hợp đồng.</li>
+                  <li><strong>Dashboard vận hành trực quan:</strong> Phân loại thẻ hợp đồng Đang hoạt động, Sắp hết hạn, Đã hết hạn; tích hợp bộ lọc tìm kiếm theo biển số, họ tên, mã sinh viên, số phòng và phân trang dữ liệu.</li>
+                  <li><strong>Quét hạn tự động & Hàng đợi Email:</strong> Worker background service tự động quét hợp đồng đến hạn mỗi ngày, kích hoạt thông báo nhắc sinh viên qua giao thức SMTP kèm cơ chế Polly retry bền bỉ.</li>
+                  <li><strong>Phân quyền vai trò nội bộ:</strong> Quản lý nhân viên theo 4 cấp quyền: <code>Admin</code>, <code>Manager</code>, <code>Guard</code> (Bảo vệ), và <code>Staff</code>.</li>
+                  <li><strong>Bảo mật thông tin sinh viên:</strong> Mã hóa số điện thoại ở tầng ứng dụng bằng khóa <strong>AES-GCM (32 byte)</strong>; tự động che (mask) địa chỉ email và số điện thoại đối với các vai trò không có quyền quản lý.</li>
+                </ul>
+              </div>
+
+              <div class="readme-block">
+                <h5>3. Kiến trúc công nghệ & Cấu trúc mã nguồn</h5>
+                <div class="code-terminal-box">
+                  <pre><code>MonthlyParkingSystem.Api/   API RESTful ASP.NET Core (.NET 10), JWT Bearer Auth & Dịch vụ nền
+MonthlyParkingSystem.Web/   Dashboard Vue 3.5 (SPA) phục vụ cùng host (Single-host deployment)
+MonthlyParkingSystem.Tests/ Kiểm thử tự động xUnit các quy tắc nghiệp vụ vòng đời hợp đồng
+database/                   Script SQL Server khởi tạo và migration đa trường (Epic 5 & 6)
+Services/                   Script PowerShell tự động cấu hình SMTP, Secrets và mã hóa AES-GCM</code></pre>
+                </div>
+              </div>
+
+              <div class="readme-block">
+                <h5>4. Quy trình kiểm thử tự động (Automated Testing)</h5>
+                <p>Toàn bộ quy tắc tính toán ngày hết hạn, chống chồng lấn thời gian xe, trạng thái hợp đồng và cửa sổ nhắc hạn đều được bảo đảm qua bộ kiểm thử tự động:</p>
+                <div class="code-terminal-box">
+                  <pre><code>dotnet test MPS.sln --configuration Release</code></pre>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="project-body-grid">
@@ -442,9 +563,9 @@
                 <span data-i18n="proj_tech_title">Điểm nổi bật về mặt kỹ thuật:</span>
               </h4>
               <div class="tech-highlight-box ios-glass-panel">
-                <p data-i18n="proj_tech_1"><strong>Kiến trúc & Lập trình:</strong> Áp dụng chặt chẽ các nguyên lý lập trình hướng đối tượng (OOP) nhằm module hóa hệ thống, dễ dàng mở rộng và bảo trì.</p>
-                <p data-i18n="proj_tech_2"><strong>Cơ sở dữ liệu:</strong> Thiết kế chuẩn hóa quan hệ CSDL trên SQL Server, tối ưu khóa ngoại và chỉ mục để xử lý truy vấn nhanh chóng.</p>
-                <p data-i18n="proj_tech_3"><strong>Quy trình phát triển:</strong> Xây dựng tài liệu yêu cầu (PRD), phân rã tính năng thành các User Stories theo phương pháp Agile/Scrum.</p>
+                <p data-i18n="proj_tech_1"><strong>Kiến trúc & Lập trình:</strong> Áp dụng kiến trúc đa trường (Multi-tenant) trên ASP.NET Core (.NET 10) & Vue 3.5, đóng gói Single-host tối ưu hiệu năng và khả năng mở rộng.</p>
+                <p data-i18n="proj_tech_2"><strong>Cơ sở dữ liệu & Bảo mật:</strong> Chuẩn hóa SQL Server với migration scripts, mã hóa số điện thoại tầng ứng dụng bằng khóa AES-GCM 32 byte và xác thực JWT Bearer.</p>
+                <p data-i18n="proj_tech_3"><strong>Tự động hóa & Kiểm thử:</strong> Background services quét hạn gửi email qua SMTP hàng ngày kết hợp Polly retry; kiểm thử tự động xUnit toàn diện các quy tắc nghiệp vụ.</p>
               </div>
 
               <div class="repo-link-box ios-glass-panel">
@@ -651,6 +772,25 @@
       <polyline points="20 6 9 17 4 12"></polyline>
     </svg>
     <span id="toastMsg" data-i18n="toast_copied">Đã sao chép vào bộ nhớ tạm!</span>
+  </div>
+
+  <!-- Fullscreen Image Lightbox Modal -->
+  <div id="imageLightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Xem ảnh phóng to">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-content">
+      <div class="lightbox-header">
+        <span class="lightbox-caption" id="lightboxCaption">MPS Residence - Ảnh chi tiết</span>
+        <button type="button" id="closeLightboxBtn" class="btn-icon ios-glass-btn" aria-label="Đóng ảnh">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="lightbox-img-wrapper">
+        <img id="lightboxImg" src="" alt="Ảnh phóng to">
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>

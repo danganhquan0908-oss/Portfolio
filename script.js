@@ -53,8 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
       proj_featured_badge: 'Dự án nổi bật',
       proj_timeline: '23/08/2026 – 20/10/2026',
       proj_source_btn: 'Mã nguồn GitHub',
-      proj_name: 'Monthly Parking System (MPS)',
-      proj_subtitle: 'Hệ thống Quản lý Bãi đỗ xe Tháng thông minh và Tự động hóa kiểm soát',
+      proj_readme_btn: 'Tài liệu README.md',
+      proj_name: 'Monthly Parking System (MPS) - MPS Residence',
+      proj_subtitle: 'Hệ thống Quản lý Bãi đỗ xe Ký túc xá Thông minh, Đa trường (Multi-Tenant) & Tự động hóa gửi Email',
+      proj_zoom_hint: 'Nhấn để xem kích thước lớn',
+      thumb_dashboard: '1. Dashboard Quản lý',
+      thumb_login: '2. Đăng nhập phân quyền',
+      thumb_modal: '3. Tạo hợp đồng gửi xe',
+      readme_heading: 'Tài Liệu Dự Án Chi Tiết (README.md)',
       proj_feat_title: 'Các tính năng cốt lõi đã triển khai:',
       proj_feat_1_title: 'Quản lý thuê bao vé tháng:',
       proj_feat_1_desc: ' Đăng ký, gia hạn, tạm khóa và quản lý chi tiết thông tin phương tiện (ô tô, xe máy) và khách hàng.',
@@ -65,9 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
       proj_feat_4_title: 'Báo cáo thống kê:',
       proj_feat_4_desc: ' Trực quan hóa số lượng xe trong bãi, lượt xe ra vào trong ngày và doanh thu theo chu kỳ tháng.',
       proj_tech_title: 'Điểm nổi bật về mặt kỹ thuật:',
-      proj_tech_1: '<strong>Kiến trúc & Lập trình:</strong> Áp dụng chặt chẽ các nguyên lý lập trình hướng đối tượng (OOP) nhằm module hóa hệ thống, dễ dàng mở rộng và bảo trì.',
-      proj_tech_2: '<strong>Cơ sở dữ liệu:</strong> Thiết kế chuẩn hóa quan hệ CSDL trên SQL Server, tối ưu khóa ngoại và chỉ mục để xử lý truy vấn nhanh chóng.',
-      proj_tech_3: '<strong>Quy trình phát triển:</strong> Xây dựng tài liệu yêu cầu (PRD), phân rã tính năng thành các User Stories theo phương pháp Agile/Scrum.',
+      proj_tech_1: '<strong>Kiến trúc & Lập trình:</strong> Áp dụng kiến trúc đa trường (Multi-tenant) trên ASP.NET Core (.NET 10) & Vue 3.5, đóng gói Single-host tối ưu hiệu năng và khả năng mở rộng.',
+      proj_tech_2: '<strong>Cơ sở dữ liệu & Bảo mật:</strong> Chuẩn hóa SQL Server với migration scripts, mã hóa số điện thoại tầng ứng dụng bằng khóa AES-GCM 32 byte và xác thực JWT Bearer.',
+      proj_tech_3: '<strong>Tự động hóa & Kiểm thử:</strong> Background services quét hạn gửi email qua SMTP hàng ngày kết hợp Polly retry; kiểm thử tự động xUnit toàn diện các quy tắc nghiệp vụ.',
       edu_tag: 'Học thức & Nền tảng',
       edu_title: 'Học Vấn',
       edu_desc: 'Chương trình đào tạo chính quy, xây dựng nền tảng tư duy thuật toán và kỹ thuật lập trình vững chắc.',
@@ -143,8 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
       proj_featured_badge: 'Featured Project',
       proj_timeline: '23/08/2026 – 20/10/2026',
       proj_source_btn: 'GitHub Repository',
-      proj_name: 'Monthly Parking System (MPS)',
-      proj_subtitle: 'Smart Monthly Parking Lot Management & Automated Access Control System',
+      proj_readme_btn: 'Technical README.md',
+      proj_name: 'Monthly Parking System (MPS) - MPS Residence',
+      proj_subtitle: 'Smart Multi-Tenant Dormitory Parking Management System & Automated Email Notifications',
+      proj_zoom_hint: 'Click to view full size',
+      thumb_dashboard: '1. Management Dashboard',
+      thumb_login: '2. Role-based Login',
+      thumb_modal: '3. New Contract Form',
+      readme_heading: 'Technical Project Documentation (README.md)',
       proj_feat_title: 'Core Features Implemented:',
       proj_feat_1_title: 'Monthly Subscription Management:',
       proj_feat_1_desc: ' Registering, renewing, suspending, and tracking customer & vehicle records (cars, motorbikes).',
@@ -155,9 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
       proj_feat_4_title: 'Analytics & Reporting:',
       proj_feat_4_desc: ' Visualizing parking occupancy, daily vehicle turnover, and monthly revenue trends.',
       proj_tech_title: 'Technical Highlights:',
-      proj_tech_1: '<strong>Architecture:</strong> Strictly applied Object-Oriented Programming (OOP) principles for high modularity, scalability, and maintainability.',
-      proj_tech_2: '<strong>Database:</strong> Normalized relational database schema on Microsoft SQL Server, indexed keys for rapid query execution.',
-      proj_tech_3: '<strong>Development Process:</strong> Formulated Product Requirement Document (PRD), decomposing features into sprint user stories via Agile/Scrum.',
+      proj_tech_1: '<strong>Architecture:</strong> Multi-tenant architecture on ASP.NET Core (.NET 10) & Vue 3.5, single-host deployment optimizing performance and scalability.',
+      proj_tech_2: '<strong>Database & Security:</strong> Normalized SQL Server with migration scripts, application-layer phone encryption with AES-GCM 32-byte key, and JWT Bearer auth.',
+      proj_tech_3: '<strong>Automation & Testing:</strong> Daily automated expiration scanning with SMTP notifications and Polly retry; comprehensive xUnit automated testing suite.',
       edu_tag: 'Academic Background',
       edu_title: 'Education',
       edu_desc: 'Formal undergraduate curriculum establishing strong algorithmic mindset and software engineering practices.',
@@ -363,7 +375,96 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --------------------------------------------------------------------------
-  // 7. ACTIVE NAV LINK ON SCROLL
+  // 7. PROJECT SCREENSHOT GALLERY & LIGHTBOX
+  // --------------------------------------------------------------------------
+  const galleryMainImg = document.getElementById('galleryMainImg');
+  const galleryTitleBar = document.getElementById('galleryTitleBar');
+  const galleryViewport = document.getElementById('galleryViewport');
+  const thumbButtons = document.querySelectorAll('.thumb-btn');
+
+  const lightbox = document.getElementById('imageLightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+  const lightboxBackdrop = document.getElementById('lightboxBackdrop');
+
+  if (galleryMainImg && thumbButtons.length > 0) {
+    thumbButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const src = btn.getAttribute('data-src');
+        const title = btn.getAttribute('data-title');
+
+        // Transition image
+        galleryMainImg.style.opacity = '0';
+        setTimeout(() => {
+          galleryMainImg.src = src;
+          galleryMainImg.style.opacity = '1';
+        }, 150);
+
+        if (galleryTitleBar && title) {
+          galleryTitleBar.textContent = title;
+        }
+
+        thumbButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  }
+
+  function openLightbox(src, title) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src || (galleryMainImg ? galleryMainImg.src : '');
+    if (lightboxCaption) {
+      lightboxCaption.textContent = title || (galleryTitleBar ? galleryTitleBar.textContent : 'MPS Residence');
+    }
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (galleryViewport) {
+    galleryViewport.addEventListener('click', () => {
+      if (galleryMainImg) {
+        openLightbox(galleryMainImg.src, galleryTitleBar ? galleryTitleBar.textContent : '');
+      }
+    });
+  }
+
+  if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', closeLightbox);
+  if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // --------------------------------------------------------------------------
+  // 8. PROJECT README DRAWER TOGGLE
+  // --------------------------------------------------------------------------
+  const toggleReadmeBtn = document.getElementById('toggleReadmeBtn');
+  const projectReadmeContainer = document.getElementById('projectReadmeContainer');
+  const closeReadmeBtn = document.getElementById('closeReadmeBtn');
+
+  if (toggleReadmeBtn && projectReadmeContainer) {
+    toggleReadmeBtn.addEventListener('click', () => {
+      projectReadmeContainer.classList.toggle('open');
+      if (projectReadmeContainer.classList.contains('open')) {
+        projectReadmeContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  }
+
+  if (closeReadmeBtn && projectReadmeContainer) {
+    closeReadmeBtn.addEventListener('click', () => {
+      projectReadmeContainer.classList.remove('open');
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 9. ACTIVE NAV LINK ON SCROLL
   // --------------------------------------------------------------------------
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -390,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateActiveNavLink();
 
   // --------------------------------------------------------------------------
-  // 8. BACK TO TOP BUTTON
+  // 10. BACK TO TOP BUTTON
   // --------------------------------------------------------------------------
   const backToTopBtn = document.getElementById('backToTop');
   if (backToTopBtn) {
