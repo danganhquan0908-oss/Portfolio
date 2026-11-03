@@ -418,6 +418,7 @@ button {
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: -0.3px;
+  white-space: nowrap;
 }
 
 .nav-list {
@@ -1096,15 +1097,18 @@ button {
 
 .live-demo-banner {
   margin: 1.25rem 0 1.5rem;
-  padding: 1rem 1.35rem;
+  padding: 1rem 1.25rem;
   border-radius: var(--radius-md);
   display: flex;
-  align-items: center;
-  gap: 1.1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
   background: rgba(225, 29, 72, 0.08);
   border: 1px solid rgba(225, 29, 72, 0.25);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .live-demo-badge {
@@ -1120,6 +1124,7 @@ button {
   letter-spacing: 0.6px;
   white-space: nowrap;
   box-shadow: 0 3px 12px var(--accent-glow);
+  flex-shrink: 0;
 }
 
 .live-dot-pulse {
@@ -1141,7 +1146,9 @@ button {
   margin: 0;
   font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .live-demo-banner strong {
@@ -1944,7 +1951,37 @@ button {
   }
 
   .navbar {
-    padding: 0.65rem 0;
+    padding: 0.5rem 0;
+  }
+
+  .brand-logo {
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  .logo-name {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .nav-actions {
+    gap: 0.35rem;
+    flex-shrink: 0;
+  }
+
+  .print-btn span {
+    display: none !important;
+  }
+
+  .print-btn {
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: var(--radius-full) !important;
+    flex-shrink: 0 !important;
   }
 
   .nav-menu {
@@ -2070,28 +2107,31 @@ button {
 
   /* Project Showcase Mobile Overhaul */
   .project-showcase-card {
-    padding: 1.25rem 1rem;
-    border-radius: var(--radius-md);
+    padding: 1.25rem 0.85rem !important;
+    border-radius: var(--radius-md) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .project-card-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
   }
 
   .project-actions-top {
-    display: flex;
-    width: 100%;
-    gap: 0.5rem;
+    display: flex !important;
+    width: 100% !important;
+    gap: 0.5rem !important;
   }
 
   .project-actions-top .btn {
-    flex: 1;
-    font-size: 0.78rem;
-    padding: 0.5rem 0.5rem;
-    justify-content: center;
-    white-space: nowrap;
+    flex: 1 !important;
+    font-size: 0.78rem !important;
+    padding: 0.5rem 0.4rem !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    text-align: center !important;
   }
 
   .project-title {
@@ -2104,38 +2144,52 @@ button {
   }
 
   .gallery-window-header {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    justify-content: space-between;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.6rem !important;
+    padding: 0.6rem 0.75rem !important;
+  }
+
+  .window-controls {
+    display: flex !important;
+    justify-content: flex-start !important;
   }
 
   .window-title-bar {
-    display: none;
+    display: none !important;
   }
 
   .window-mode-switch {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 0.25rem;
-    padding: 3px;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 0.25rem !important;
+    padding: 2px !important;
+    box-sizing: border-box !important;
   }
 
   .window-tab-btn {
-    flex: 1;
-    justify-content: center;
-    text-align: center;
-    font-size: 0.72rem;
-    padding: 0.4rem 0.3rem;
-    white-space: nowrap;
+    flex: 1 !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 0.72rem !important;
+    padding: 0.4rem 0.25rem !important;
+    white-space: nowrap !important;
   }
 
   .live-demo-banner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.6rem;
-    padding: 0.85rem 1rem;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.65rem !important;
+    padding: 0.85rem 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .live-demo-banner p {
+    width: 100% !important;
+    font-size: 0.85rem !important;
+    line-height: 1.55 !important;
   }
 
   .live-app-viewport {
@@ -2317,6 +2371,31 @@ button {
 
   .gpa-badge {
     align-self: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo-name {
+    font-size: 0.85rem !important;
+    max-width: 95px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  .nav-actions {
+    gap: 0.25rem !important;
+  }
+  .segment-btn {
+    padding: 0 8px !important;
+    font-size: 0.7rem !important;
+  }
+  .btn-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .print-btn {
+    width: 32px !important;
+    height: 32px !important;
   }
 }
 
