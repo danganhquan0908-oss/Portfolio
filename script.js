@@ -352,9 +352,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function copyTextToClipboard(text) {
-    const successMsg = currentLang === 'en' 
-      ? `Copied email: ${text}` 
-      : `Đã sao chép email: ${text}`;
+    let successMsg = currentLang === 'en' ? `Copied: ${text}` : `Đã sao chép: ${text}`;
+    if (text.includes('@')) {
+      successMsg = currentLang === 'en' ? `Copied email: ${text}` : `Đã sao chép email: ${text}`;
+    } else if (text.startsWith('+') || /^[0-9\s-]+$/.test(text)) {
+      successMsg = currentLang === 'en' ? `Copied phone: ${text}` : `Đã sao chép số điện thoại: ${text}`;
+    }
 
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(text)

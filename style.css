@@ -134,6 +134,10 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -145,8 +149,12 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   position: relative;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   transition: background 0.4s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -156,6 +164,7 @@ a {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -186,8 +195,10 @@ button {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   pointer-events: none;
   z-index: 1;
@@ -1139,14 +1150,18 @@ button {
 
 .live-app-viewport {
   width: 100%;
+  max-width: 100%;
   height: 650px;
   background: #0d131f;
   position: relative;
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 #mpsIframe {
   width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   height: 100%;
   border: none;
   display: block;
@@ -1924,6 +1939,14 @@ button {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .navbar {
+    padding: 0.65rem 0;
+  }
+
   .nav-menu {
     position: fixed;
     top: 4.25rem;
@@ -1933,7 +1956,7 @@ button {
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border-bottom: 1px solid var(--glass-card-border);
-    padding: 1.5rem;
+    padding: 1.25rem 1rem;
     display: none;
     flex-direction: column;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
@@ -1960,12 +1983,61 @@ button {
     display: inline-flex;
   }
 
+  .hero-section {
+    padding: 2rem 0 3.5rem;
+  }
+
   .hero-title {
-    font-size: 2.25rem;
+    font-size: 2.1rem;
+    line-height: 1.2;
   }
 
   .greeting-text {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
+  }
+
+  .hero-bio {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    max-width: 100%;
+  }
+
+  .contact-badges {
+    width: 100%;
+    align-items: stretch;
+    gap: 0.55rem;
+  }
+
+  .info-pill {
+    width: 100%;
+    font-size: 0.825rem;
+    padding: 0.55rem 0.85rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  .info-pill span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .copy-tag {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .section-title {
@@ -1977,12 +2049,13 @@ button {
   }
 
   .avatar-card {
-    max-width: 270px;
+    max-width: 250px;
+    margin: 0 auto;
   }
 
   .avatar-floating-card {
-    bottom: -12px;
-    right: -8px;
+    bottom: -10px;
+    right: -4px;
     padding: 0.5rem 0.85rem;
   }
 
@@ -1993,6 +2066,257 @@ button {
 
   .floating-value {
     font-size: 0.85rem;
+  }
+
+  /* Project Showcase Mobile Overhaul */
+  .project-showcase-card {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .project-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .project-actions-top {
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .project-actions-top .btn {
+    flex: 1;
+    font-size: 0.78rem;
+    padding: 0.5rem 0.5rem;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .project-title {
+    font-size: 1.45rem;
+    line-height: 1.25;
+  }
+
+  .project-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .gallery-window-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    justify-content: space-between;
+  }
+
+  .window-title-bar {
+    display: none;
+  }
+
+  .window-mode-switch {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.25rem;
+    padding: 3px;
+  }
+
+  .window-tab-btn {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.72rem;
+    padding: 0.4rem 0.3rem;
+    white-space: nowrap;
+  }
+
+  .live-demo-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .live-app-viewport {
+    height: 540px;
+    max-width: 100%;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #mpsIframe {
+    width: 1px;
+    min-width: 100%;
+    *width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .gallery-thumbnails {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+    padding: 0.5rem;
+  }
+
+  .thumb-label {
+    display: none;
+  }
+
+  .thumb-btn {
+    padding: 3px;
+  }
+
+  .thumb-btn img {
+    height: 48px;
+    object-fit: cover;
+  }
+
+  /* Education & Objectives & Contacts */
+  .education-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .objective-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .contact-card {
+    padding: 1rem 0.9rem;
+  }
+
+  .contact-actions-row {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .contact-actions-row .btn {
+    flex: 1;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.5rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .status-banner {
+    padding: 0.45rem 0;
+  }
+
+  .banner-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.35rem;
+  }
+
+  .status-text {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .print-btn span {
+    display: none;
+  }
+
+  .print-btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+  }
+
+  .logo-name {
+    font-size: 0.95rem;
+  }
+
+  .logo-badge {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
+  .nav-actions {
+    gap: 0.35rem;
+  }
+
+  .btn-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .segment-btn {
+    padding: 0.25rem 0.55rem;
+    font-size: 0.72rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .section-title {
+    font-size: 1.55rem;
+  }
+
+  .section-desc {
+    font-size: 0.9rem;
+  }
+
+  .live-app-viewport {
+    height: 510px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .greeting-text {
+    font-size: 1.25rem;
+  }
+
+  .badge-role {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.65rem;
+  }
+
+  .info-pill {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .live-app-viewport {
+    height: 480px;
+  }
+
+  .project-showcase-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .project-actions-top {
+    flex-direction: column;
+  }
+
+  .project-actions-top .btn {
+    width: 100%;
+  }
+
+  .education-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .gpa-badge {
+    align-self: flex-start;
   }
 }
 
