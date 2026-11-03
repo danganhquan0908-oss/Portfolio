@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặng Anh Quân | CV - Software Engineering Intern</title>
+  <meta name="description" content="CV và Portfolio của Đặng Anh Quân - Software Engineering Intern / Software Developer. Chuyên môn C#, .NET Core, SQL Server.">
+  <meta name="author" content="Đặng Anh Quân">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Notification / Status Banner -->
+  <aside class="status-banner" aria-label="Trạng thái tìm việc">
+    <div class="container banner-inner">
+      <span class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span class="status-text">Đang tìm kiếm cơ hội <strong>Software Engineering Intern / .NET Developer</strong></span>
+      </span>
+      <div class="banner-actions">
+        <a href="#contact" class="banner-link">Liên hệ ngay &rarr;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" aria-label="Trang chủ">
+        <span class="logo-badge">AQ</span>
+        <span class="logo-name">Đặng Anh Quân</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link">Giới thiệu</a></li>
+          <li><a href="#skills" class="nav-link">Kỹ năng</a></li>
+          <li><a href="#projects" class="nav-link">Dự án</a></li>
+          <li><a href="#education" class="nav-link">Học vấn</a></li>
+          <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button id="themeToggleBtn" class="btn-icon" aria-label="Chuyển chế độ sáng/tối" title="Chuyển đổi giao diện Sáng / Tối">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Print / PDF Button -->
+        <button id="printBtn" class="btn btn-outline btn-sm print-btn" title="Xuất file hoặc in CV chuẩn A4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>In / Lưu PDF</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobileMenuBtn" class="btn-icon mobile-menu-btn" aria-label="Mở menu điều hướng">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="about">
+      <div class="container hero-container">
+        
+        <div class="hero-text">
+          <div class="badge-role">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span>Mục tiêu: Software Engineering Intern / Developer</span>
+          </div>
+
+          <h1 class="hero-title">
+            Xin chào, tôi là <br>
+            <span class="highlight-gradient">Đặng Anh Quân</span>
+          </h1>
+
+          <p class="hero-bio">
+            Tôi là một người cầu tiến, sở hữu kỹ năng phân tích và xử lý vấn đề, linh hoạt ứng biến trong các tình huống thực tế. 
+            Luôn kiên trì, không ngại khó khăn hay thử thách và có tinh thần tự học mạnh mẽ với những công nghệ mới. 
+            Sẵn sàng cống hiến hết mình trong môi trường kỹ thuật chuyên nghiệp.
+          </p>
+
+          <!-- Contact Quick Info -->
+          <div class="contact-badges">
+            <div class="info-pill copyable" id="copyEmailBtn" data-copy="danganhquan0908@gmail.com" title="Nhấn để sao chép Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>danganhquan0908@gmail.com</span>
+              <span class="copy-tag">Sao chép</span>
+            </div>
+
+            <div class="info-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Kiên Đài - Tuyên Quang, Việt Nam</span>
+            </div>
+
+            <a href="https://github.com/danganhquan0908-oss" target="_blank" rel="noopener noreferrer" class="info-pill info-link" title="Ghé thăm trang GitHub cá nhân">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              <span>github.com/danganhquan0908-oss</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Hero Call To Actions -->
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <span>Xem Dự Án Của Tôi</span>
+            </a>
+            <a href="mailto:danganhquan0908@gmail.com" class="btn btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span>Gửi Thư Tuyển Dụng</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Avatar Column -->
+        <div class="hero-avatar-wrapper">
+          <div class="avatar-card">
+            <div class="avatar-glow"></div>
+            <div class="avatar-image-container">
+              <img src="assets/avatar.jpg" alt="Ảnh đại diện Đặng Anh Quân" class="avatar-img" loading="eager">
+              <div class="avatar-badge">
+                <span class="active-dot"></span>
+                <span>Sẵn sàng phỏng vấn</span>
+              </div>
+            </div>
+            <!-- Quick Stat Pill under avatar -->
+            <div class="avatar-floating-card">
+              <div class="floating-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
+              <div class="floating-text">
+                <span class="floating-label">Sinh viên CNTT</span>
+                <span class="floating-value">GPA 3.3 / 4.0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS SECTION -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Năng lực cốt lõi</span>
+          <h2 class="section-title">Kỹ Năng Chuyên Môn</h2>
+          <p class="section-desc">Các ngôn ngữ, nền tảng công nghệ và công cụ được trang bị vững chắc từ chương trình đào tạo và đồ án thực tế.</p>
+        </div>
+
+        <div class="skills-grid">
+          
+          <!-- Programming Languages -->
+          <div class="skill-category-card">
+            <div class="card-icon-header">
+              <div class="icon-circle icon-blue">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3 class="card-title">Ngôn Ngữ Lập Trình</h3>
+            </div>
+            <p class="card-desc">Thành thạo lập trình hướng đối tượng (OOP), quản lý bộ nhớ và thao tác dữ liệu.</p>
+            <div class="tags-container">
+              <span class="tech-tag primary"><span class="bullet"></span>C# (.NET)</span>
+              <span class="tech-tag"><span class="bullet"></span>C++</span>
+              <span class="tech-tag"><span class="bullet"></span>SQL</span>
+            </div>
+          </div>
+
+          <!-- Framework & Libraries -->
+          <div class="skill-category-card">
+            <div class="card-icon-header">
+              <div class="icon-circle icon-purple">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h3 class="card-title">Framework & Nền Tảng</h3>
+            </div>
+            <p class="card-desc">Xây dựng ứng dụng hiện đại, tối ưu hiệu năng và kiến trúc chuẩn hóa.</p>
+            <div class="tags-container">
+              <span class="tech-tag primary"><span class="bullet"></span>.NET Core</span>
+              <span class="tech-tag"><span class="bullet"></span>ASP.NET Core</span>
+              <span class="tech-tag"><span class="bullet"></span>Entity Framework / LINQ</span>
+            </div>
+          </div>
+
+          <!-- Database -->
+          <div class="skill-category-card">
+            <div class="card-icon-header">
+              <div class="icon-circle icon-emerald">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+              <h3 class="card-title">Cơ Sở Dữ Liệu</h3>
+            </div>
+            <p class="card-desc">Thiết kế lược đồ quan hệ chuẩn (ERD), viết truy vấn tối ưu và thủ tục lưu trữ.</p>
+            <div class="tags-container">
+              <span class="tech-tag primary"><span class="bullet"></span>Microsoft SQL Server</span>
+              <span class="tech-tag"><span class="bullet"></span>T-SQL Query Optimization</span>
+              <span class="tech-tag"><span class="bullet"></span>Stored Procedures & Triggers</span>
+            </div>
+          </div>
+
+          <!-- Tools & Process -->
+          <div class="skill-category-card">
+            <div class="card-icon-header">
+              <div class="icon-circle icon-amber">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+              </div>
+              <h3 class="card-title">Công Cụ & Quy Trình</h3>
+            </div>
+            <p class="card-desc">Quản lý mã nguồn, môi trường phát triển và tuân thủ quy trình phát triển chuyên nghiệp.</p>
+            <div class="tags-container">
+              <span class="tech-tag"><span class="bullet"></span>Git & GitHub</span>
+              <span class="tech-tag"><span class="bullet"></span>Visual Studio</span>
+              <span class="tech-tag"><span class="bullet"></span>VS Code</span>
+              <span class="tech-tag highlight"><span class="bullet"></span>Tài liệu PRD</span>
+              <span class="tech-tag highlight"><span class="bullet"></span>Agile Scrum</span>
+            </div>
+          </div>
+
+          <!-- Soft Skills -->
+          <div class="skill-category-card full-width-card">
+            <div class="card-icon-header">
+              <div class="icon-circle icon-rose">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h3 class="card-title">Kỹ Năng Mềm & Phong Cách Làm Việc</h3>
+            </div>
+            <div class="soft-skills-grid">
+              <div class="soft-skill-item">
+                <div class="soft-skill-badge">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                <div>
+                  <strong>Làm việc nhóm (Teamwork):</strong>
+                  <p>Hợp tác chặt chẽ, giao tiếp rõ ràng và luôn chủ động hỗ trợ đồng đội.</p>
+                </div>
+              </div>
+              <div class="soft-skill-item">
+                <div class="soft-skill-badge">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                <div>
+                  <strong>Phân tích yêu cầu (Requirement Analysis):</strong>
+                  <p>Khả năng phân tích bài toán, xác định yêu cầu nghiệp vụ và chuyển hóa thành kiến trúc phần mềm.</p>
+                </div>
+              </div>
+              <div class="soft-skill-item">
+                <div class="soft-skill-badge">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                <div>
+                  <strong>Thuyết trình & Báo cáo:</strong>
+                  <p>Trình bày mạch lạc giải pháp kỹ thuật, demo tính năng sản phẩm trước nhóm và giảng viên.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS SECTION -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Kinh nghiệm thực hành</span>
+          <h2 class="section-title">Dự Án Tiêu Biểu</h2>
+          <p class="section-desc">Đồ án thực tế áp dụng kiến trúc phần mềm chuẩn, tối ưu dữ liệu và quy trình phát triển chuyên nghiệp.</p>
+        </div>
+
+        <div class="project-showcase-card">
+          <div class="project-card-header">
+            <div class="project-meta">
+              <span class="project-type-badge">Featured Project</span>
+              <span class="project-timeline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>23/08/2026 – 20/10/2026</span>
+              </span>
+            </div>
+
+            <div class="project-actions-top">
+              <a href="https://github.com/danganhquan0908-oss/Monthly-Parking-System" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-github" title="Xem mã nguồn trên GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <span>Mã nguồn GitHub</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <h3 class="project-title">Monthly Parking System (MPS)</h3>
+          <p class="project-subtitle">Hệ thống Quản lý Bãi đỗ xe Tháng thông minh và Tự động hóa kiểm soát</p>
+
+          <div class="project-tech-badges">
+            <span class="tech-chip">C#</span>
+            <span class="tech-chip">.NET Core</span>
+            <span class="tech-chip">Microsoft SQL Server</span>
+            <span class="tech-chip">OOP Architecture</span>
+            <span class="tech-chip">Agile / Scrum</span>
+            <span class="tech-chip">Git Version Control</span>
+          </div>
+
+          <div class="project-body-grid">
+            <div class="project-feature-col">
+              <h4 class="col-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 11 12 14 22 4"></polyline>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+                Các tính năng cốt lõi đã triển khai:
+              </h4>
+              <ul class="feature-checklist">
+                <li>
+                  <strong>Quản lý thuê bao vé tháng:</strong> Đăng ký, gia hạn, tạm khóa và quản lý chi tiết thông tin phương tiện (ô tô, xe máy) và khách hàng.
+                </li>
+                <li>
+                  <strong>Kiểm soát vào / ra tự động:</strong> Xác thực nhanh thẻ xe tháng, đối soát biển số và thời hạn hiệu lực với độ trễ tối thiểu.
+                </li>
+                <li>
+                  <strong>Tính toán chi phí & hóa đơn:</strong> Tự động tính cước phí dịch vụ theo chu kỳ, xử lý phát sinh cước vượt giờ và xuất biên lai.
+                </li>
+                <li>
+                  <strong>Báo cáo thống kê:</strong> Trực quan hóa số lượng xe trong bãi, lượt xe ra vào trong ngày và doanh thu theo chu kỳ tháng.
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-tech-col">
+              <h4 class="col-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                Điểm nổi bật về mặt kỹ thuật:
+              </h4>
+              <div class="tech-highlight-box">
+                <p><strong>Kiến trúc & Lập trình:</strong> Áp dụng chặt chẽ các nguyên lý lập trình hướng đối tượng (OOP) nhằm module hóa hệ thống, dễ dàng mở rộng và bảo trì.</p>
+                <p><strong>Cơ sở dữ liệu:</strong> Thiết kế chuẩn hóa quan hệ CSDL trên SQL Server, tối ưu khóa ngoại và chỉ mục để xử lý truy vấn nhanh chóng.</p>
+                <p><strong>Quy trình phát triển:</strong> Xây dựng tài liệu yêu cầu (PRD), phân rã tính năng thành các User Stories theo phương pháp Agile/Scrum.</p>
+              </div>
+
+              <div class="repo-link-box">
+                <span class="repo-label">Đường dẫn repository:</span>
+                <a href="https://github.com/danganhquan0908-oss/Monthly-Parking-System" target="_blank" rel="noopener noreferrer" class="repo-url">
+                  <code>github.com/danganhquan0908-oss/Monthly-Parking-System</code>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="section education-section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Học thức & Nền tảng</span>
+          <h2 class="section-title">Học Vấn</h2>
+          <p class="section-desc">Chương trình đào tạo chính quy, xây dựng nền tảng tư duy thuật toán và kỹ thuật lập trình vững chắc.</p>
+        </div>
+
+        <div class="education-card">
+          <div class="edu-top">
+            <div class="edu-school-info">
+              <div class="school-logo-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="school-name">Trường Đại Học Công Nghệ Thông Tin & Truyền Thông Thái Nguyên (ICTU)</h3>
+                <p class="school-major">Ngành: <strong>Kỹ Thuật Phần Mềm (Software Engineering)</strong></p>
+              </div>
+            </div>
+
+            <div class="edu-meta">
+              <span class="edu-period">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                2025 – 2028
+              </span>
+              <span class="gpa-badge">
+                <span class="gpa-label">GPA</span>
+                <span class="gpa-score">3.3 / 4.0</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="edu-divider"></div>
+
+          <div class="edu-content">
+            <h4 class="core-courses-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              Các Môn Học Cốt Lõi Đạt Kết Quả Tốt:
+            </h4>
+            
+            <div class="courses-grid">
+              <div class="course-pill">
+                <span class="course-code">DSA</span>
+                <span class="course-name">Cấu trúc dữ liệu và giải thuật</span>
+              </div>
+              <div class="course-pill">
+                <span class="course-code">OOP</span>
+                <span class="course-name">Lập trình hướng đối tượng</span>
+              </div>
+              <div class="course-pill">
+                <span class="course-code">DBMS</span>
+                <span class="course-name">Hệ quản trị cơ sở dữ liệu</span>
+              </div>
+              <div class="course-pill">
+                <span class="course-code">SE</span>
+                <span class="course-name">Phân tích & Thiết kế phần mềm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CAREER GOALS & INTERNSHIP OBJECTIVE -->
+    <section class="section objective-section">
+      <div class="container">
+        <div class="objective-card">
+          <div class="objective-header">
+            <div class="icon-circle icon-blue">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            </div>
+            <div>
+              <h3 class="objective-title">Mục Tiêu Thực Tập & Định Hướng Phát Triển</h3>
+              <p class="objective-subtitle">Kế hoạch rèn luyện và đóng góp giá trị cho doanh nghiệp</p>
+            </div>
+          </div>
+
+          <div class="objective-grid">
+            <div class="objective-box">
+              <h4>Mục tiêu ngắn hạn (6 - 12 tháng)</h4>
+              <p>Trở thành một <strong>Software Engineering Intern</strong> nhanh nhẹn và đóng góp hiệu quả; làm quen sâu sắc với quy trình phát triển thực tế, kiểm thử Unit Test, xây dựng API với .NET Core và tiếp thu kinh nghiệm từ các Senior Engineer.</p>
+            </div>
+            <div class="objective-box">
+              <h4>Mục tiêu dài hạn (2 - 3 năm)</h4>
+              <p>Phát triển vững vàng lên vị trí <strong>Software Developer / Backend Engineer</strong> nòng cốt, làm chủ các kiến trúc hệ thống hiện đại, tối ưu hiệu năng cơ sở dữ liệu và xây dựng giải pháp phần mềm ổn định, có khả năng mở rộng cao.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Kết nối hợp tác</span>
+          <h2 class="section-title">Thông Tin Liên Hệ</h2>
+          <p class="section-desc">Tôi luôn sẵn sàng đón nhận cơ hội thực tập, phỏng vấn và trao đổi chuyên môn.</p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <span class="label">Hộp thư điện tử:</span>
+              <a href="mailto:danganhquan0908@gmail.com" class="val">danganhquan0908@gmail.com</a>
+            </div>
+            <button class="btn btn-sm btn-outline copy-email-btn" data-copy="danganhquan0908@gmail.com" title="Sao chép địa chỉ email">
+              <span>Sao chép</span>
+            </button>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <span class="label">GitHub Profile:</span>
+              <a href="https://github.com/danganhquan0908-oss" target="_blank" rel="noopener noreferrer" class="val">danganhquan0908-oss</a>
+            </div>
+            <a href="https://github.com/danganhquan0908-oss" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
+              <span>Truy cập &rarr;</span>
+            </a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <span class="label">Địa chỉ thường trú:</span>
+              <span class="val">Kiên Đài - Tuyên Quang, Việt Nam</span>
+            </div>
+            <span class="badge-status">Quê quán</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <p class="copyright">&copy; 2026 <strong>Đặng Anh Quân</strong>. Tất cả thông tin được bảo lưu.</p>
+        <p class="built-with">Được xây dựng với HTML5, CSS3 hiện đại & Thiết kế tối ưu cho Nhà tuyển dụng.</p>
+      </div>
+      <div class="footer-right">
+        <a href="#about" class="back-to-top" id="backToTop" aria-label="Về đầu trang">
+          <span>Lên đầu trang</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification for Copying -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastMsg">Đã sao chép vào bộ nhớ tạm!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
