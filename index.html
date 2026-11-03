@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css?v=3.0">
+  <link rel="stylesheet" href="style.css?v=3.1">
 </head>
 <body>
 
@@ -218,6 +218,70 @@
 
         <!-- Hero Avatar Column (Apple iOS Glass Card) -->
         <div class="hero-avatar-wrapper">
+          <!-- Cyber Tech Circuit Board Backdrop (Ánh kim công nghệ) -->
+          <div class="avatar-circuit-backdrop" aria-hidden="true">
+            <svg class="avatar-circuit-svg" viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="goldTraceL" x1="0%" y1="0%" x2="100%" y2="80%">
+                  <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.35"/>
+                  <stop offset="35%" stop-color="#f59e0b" stop-opacity="0.85"/>
+                  <stop offset="70%" stop-color="#d97706" stop-opacity="0.7"/>
+                  <stop offset="100%" stop-color="#78350f" stop-opacity="0.3"/>
+                </linearGradient>
+                <linearGradient id="goldTraceR" x1="100%" y1="0%" x2="0%" y2="80%">
+                  <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.35"/>
+                  <stop offset="35%" stop-color="#f59e0b" stop-opacity="0.85"/>
+                  <stop offset="70%" stop-color="#d97706" stop-opacity="0.7"/>
+                  <stop offset="100%" stop-color="#78350f" stop-opacity="0.3"/>
+                </linearGradient>
+                <radialGradient id="nodeGlow1" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#fffbeb" stop-opacity="1"/>
+                  <stop offset="25%" stop-color="#fde047" stop-opacity="0.95"/>
+                  <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.65"/>
+                  <stop offset="100%" stop-color="#b45309" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="nodeGlow2" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+                  <stop offset="25%" stop-color="#fbbf24" stop-opacity="0.95"/>
+                  <stop offset="60%" stop-color="#d97706" stop-opacity="0.65"/>
+                  <stop offset="100%" stop-color="#78350f" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <g class="circuit-traces-left">
+                <path d="M 10 95 L 60 95 L 95 130 L 145 130" stroke="url(#goldTraceL)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="148" cy="130" r="5" stroke="#f59e0b" stroke-width="1.8" fill="#24150c"/>
+                <circle cx="148" cy="130" r="2" fill="#fbbf24"/>
+                <circle cx="10" cy="95" r="3" fill="#d97706"/>
+                <path d="M 0 175 L 55 175 L 90 140 L 135 140" stroke="url(#goldTraceL)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="55" cy="175" r="16" fill="url(#nodeGlow1)" class="circuit-node-pulse"/>
+                <circle cx="55" cy="175" r="3.5" fill="#fffbeb"/>
+                <circle cx="138" cy="140" r="4.5" stroke="#fbbf24" stroke-width="1.8" fill="#24150c"/>
+                <path d="M 20 235 L 70 235 L 105 270 L 150 270" stroke="url(#goldTraceL)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="70" cy="235" r="3" fill="#fbbf24"/>
+                <circle cx="153" cy="270" r="4.5" stroke="#d97706" stroke-width="1.8" fill="#1b0f08"/>
+                <circle cx="153" cy="270" r="1.5" fill="#f59e0b"/>
+                <path d="M 5 295 L 50 295 L 80 325 L 135 325" stroke="url(#goldTraceL)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="138" cy="325" r="4.5" stroke="#f59e0b" stroke-width="1.8" fill="#1b0f08"/>
+              </g>
+              <g class="circuit-traces-right">
+                <path d="M 490 115 L 530 115 L 565 80 L 615 80" stroke="url(#goldTraceR)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="488" cy="115" r="5" stroke="#f59e0b" stroke-width="1.8" fill="#24150c"/>
+                <circle cx="488" cy="115" r="2" fill="#fbbf24"/>
+                <circle cx="618" cy="80" r="3.5" fill="#d97706"/>
+                <path d="M 495 190 L 530 190 L 560 220 L 620 220" stroke="url(#goldTraceR)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="560" cy="220" r="18" fill="url(#nodeGlow2)" class="circuit-node-pulse"/>
+                <circle cx="560" cy="220" r="4" fill="#ffffff"/>
+                <circle cx="493" cy="190" r="3.5" fill="#fbbf24"/>
+                <path d="M 485 260 L 520 260 L 555 295 L 605 295" stroke="url(#goldTraceR)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="483" cy="260" r="4.5" stroke="#f59e0b" stroke-width="1.8" fill="#1b0f08"/>
+                <circle cx="608" cy="295" r="4.5" stroke="#d97706" stroke-width="1.8" fill="#1b0f08"/>
+                <circle cx="608" cy="295" r="1.5" fill="#f59e0b"/>
+                <path d="M 495 330 L 535 330 L 565 300 L 610 300" stroke="url(#goldTraceR)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="613" cy="300" r="4.5" stroke="#f59e0b" stroke-width="1.8" fill="#1b0f08"/>
+                <circle cx="535" cy="330" r="3" fill="#d97706"/>
+              </g>
+            </svg>
+          </div>
           <div class="avatar-card ios-glass-card">
             <div class="avatar-image-container">
               <img src="assets/avatar.jpg" alt="Ảnh đại diện Đặng Anh Quân" class="avatar-img" loading="eager">
@@ -484,7 +548,7 @@
 
             <!-- LIVE WEB APP CONTAINER (EMBEDDED IFRAME) -->
             <div class="live-app-viewport" id="liveAppContainer">
-              <iframe id="mpsIframe" src="mps-demo/index.html?v=3.0" title="MPS Residence Web App" loading="lazy"></iframe>
+              <iframe id="mpsIframe" src="mps-demo/index.html?v=3.1" title="MPS Residence Web App" loading="lazy"></iframe>
             </div>
 
             <!-- SCREENSHOT GALLERY CONTAINER (CAN BE TOGGLED) -->
@@ -908,6 +972,6 @@ Services/                   Script PowerShell tự động cấu hình SMTP, Sec
     </div>
   </div>
 
-  <script src="script.js?v=3.0"></script>
+  <script src="script.js?v=3.1"></script>
 </body>
 </html>
